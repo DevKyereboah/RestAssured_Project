@@ -1,5 +1,3 @@
-package tests;
-
 import org.testng.annotations.Test;
 import io.restassured.matcher.RestAssuredMatchers.*;
 import org.hamcrest.Matchers.*;
