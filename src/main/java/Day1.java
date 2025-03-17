@@ -3,8 +3,8 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
-public class HTTPRequests {
+
+public class Day1 {
     int id ;
     @Test(priority = 1)
     public void getUsers() {
@@ -31,7 +31,7 @@ public class HTTPRequests {
                 .when()
                 .post("https://reqres.in/api/users")
                 .jsonPath().getInt("id");
-
+        System.out.println(id);
 //                .then()
 //                .statusCode(201)
 //                .log().all();
@@ -53,16 +53,15 @@ public class HTTPRequests {
                 .statusCode(200)
                 .log().all();
         System.out.println("https://reqres.in/api/users/" +id);
-
-        System.out.println("space");
     }
 
     @Test(priority = 4, dependsOnMethods = {"update"})
     public void deleteUser(){
-
-                when()
+        given()
+                .when()
                 .delete("https://reqres.in/api/users/" + id)
-                .then().statusCode(204);
+                .then().statusCode(204)
+                .log().all();
     }
 
 }
