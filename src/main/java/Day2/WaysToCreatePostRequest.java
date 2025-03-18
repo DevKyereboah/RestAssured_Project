@@ -98,6 +98,4 @@ public class WaysToCreatePostRequest {
                 .header("Content-Type", "application/json")
                 .log().all();
     }
-
-
 }
