@@ -9,16 +9,16 @@ public class PathAndQueryParams {
 
     @Test
     public void testQueryAndPathParameters(){
-        given()
-                .pathParam("myPath", "users")
-                .queryParam("page", 2)
-                .queryParam("id", "5")
+      given()
+              .pathParam("pathParam", "users")
+              .queryParam("pages, 2")
+              .queryParam("id", 5)
 
-                .when()
-                .get("https://reqres.in/api/{myPath}")
+              .when()
+              .get("https://reqres.in/api/ + {pathParam}")
 
-                .then()
-                .statusCode(200)
-                .log().all();
+                      .then()
+                      .statusCode(200)
+                      .log().all();
     }
 }
